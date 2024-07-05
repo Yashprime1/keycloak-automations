@@ -12,8 +12,6 @@ parser.add_argument("--client_id", help="Client Id", required=True)
 parser.add_argument("--client_secret_key", help="Client secret key", required=True)
 args = parser.parse_args()
 
-logging.info(f"Arguments parsed")
-
 client_id = args.client_id
 client_secret_key = args.client_secret_key
 
@@ -85,11 +83,11 @@ def get_user_sessions(user_id):
 def delete_inactive_user_sessions():
     try:
         users = get_users()
-        logging.info("Number of users ", len(users))
+        logging.info(f"Number of users {len(users)}")
 
         for user in users:
             user_id = user["id"]
-            logging.info("Deleting User session for user: ", user["username"])
+            logging.info(f"Deleting User session for user: {user["username"]}")
             user_sessions = get_user_sessions(user_id)
             if user_sessions:
                 for session in user_sessions:
