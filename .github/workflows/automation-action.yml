@@ -1,0 +1,22 @@
+name: Build and Deploy AMIs
+
+on:
+  workflow_dispatch:
+    
+
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v3
+      - name: Install Python Requirements
+        run: |
+          set -euxo pipefail
+          pip3 install argparse requests
+      - name: Run Script
+        run: python3 automation.py --client_id=${{ secrets.CLIENT_ID }}  --client_secret_key=${{ secrets.CLIENT_SECRET_KEY }}
+
+
+  
