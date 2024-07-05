@@ -51,7 +51,7 @@ def get_users():
         token = get_valid_access_token()
         if token is None:
             return []
-        url = f"https://id.clevertap.net/auth/admin/realms/CleverTap/users?max=2000&enabled=true"
+        url = f"https://id.clevertap.net/auth/admin/realms/CleverTap/users?max=10&enabled=true"
         headers = {
             'Authorization': f"Bearer {token}"
         }
