@@ -87,7 +87,8 @@ def delete_inactive_user_sessions():
 
         for user in users:
             user_id = user["id"]
-            logging.info(f"Deleting User session for user: {user["username"]}")
+            user_name=user["username"]
+            logging.info(f"Deleting User session for user: {user_name}")
             user_sessions = get_user_sessions(user_id)
             if user_sessions:
                 for session in user_sessions:
